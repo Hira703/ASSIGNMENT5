@@ -1,7 +1,7 @@
 const taskCountElement = document.getElementById("Task");
 const clearHistoryBtn = document.getElementById("clear-history");
 const activityLog = document.querySelector(".col-span-3");
-const incrementCountElement = document.getElementById("increment"); // Fixed reference
+const incrementCountElement = document.getElementById("increment"); 
 
 let taskCount = parseInt(taskCountElement.textContent);
 let completedTasks = parseInt(incrementCountElement.textContent); 
@@ -13,15 +13,18 @@ function completeTask(event) {
         taskCount--;
         taskCountElement.textContent = String(taskCount).padStart(2, '0'); 
 
-        // Increment the completed task count
+        
         completedTasks++;
-        incrementCountElement.textContent = completedTasks; // Updating count
+        incrementCountElement.textContent = completedTasks;
 
         button.disabled = true;
         button.classList.add("bg-gray-400", "cursor-not-allowed");
 
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString(); 
+
         const logEntry = document.createElement("p");
-        logEntry.textContent = `Task "${button.parentElement.parentElement.querySelector("h3").textContent}" completed.`;
+        logEntry.textContent = `Task "${button.parentElement.parentElement.querySelector("h3").textContent}" completed at ${formattedTime}.`;
         logEntry.classList.add("text-gray-600", "text-sm", "mt-2");
         activityLog.appendChild(logEntry);
 
@@ -29,7 +32,8 @@ function completeTask(event) {
     }
 }
 
-// Attach event listeners to all task buttons
+
+
 document.querySelectorAll(".btn.bg-blue-500").forEach((button) => {
     button.addEventListener("click", completeTask);
 });
