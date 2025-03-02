@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
     <link
-    href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6">
        <!-- Header -->
@@ -22,7 +23,7 @@
         </div>
         
           
-          <button class="btn bg-purple-900 text-white" id="back-button">
+          <button class="btn bg-purple-900 text-white" id="backButton">
            Back to Desk
           </button>
         
@@ -67,8 +68,10 @@
 <p class="text-gray-500">In JavaScript, elements can be **created** using `document.createElement("tag")`, **added** using methods like `appendChild()` or `append()`, and **removed** using `removeChild()` or `remove()`. For example, `let div = document.createElement("div"); parent.appendChild(div);` adds a new `<div>` to the parent. Similarly, `element.remove();` removes an element from the DOM.</p>
 </div>
       </section>
-      <script src="./js/redirect.js">
-
+      <script >
+ document.getElementById("backButton").addEventListener("click", function () {
+        window.location.href = "index.html";
+    });
       </script>
       
 </body>
