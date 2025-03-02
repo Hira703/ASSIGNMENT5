@@ -9,23 +9,22 @@ let taskCount = parseInt(taskCountElement.textContent);
 function completeTask(event) {
     const button = event.target;
 
-    
     if (taskCount > 0 && !button.disabled) {
         taskCount--;
-        taskCountElement.textContent = taskCount; 
-
+     
+        taskCountElement.textContent = String(taskCount).padStart(2, '0'); 
+    
         button.disabled = true;
         button.classList.add("bg-gray-400", "cursor-not-allowed");
-
-       
+    
         const logEntry = document.createElement("p");
         logEntry.textContent = `Task "${button.parentElement.parentElement.querySelector("h3").textContent}" completed.`;
         logEntry.classList.add("text-gray-600", "text-sm", "mt-2");
         activityLog.appendChild(logEntry);
-
-       
+    
         alert("You have completed the task successfully!");
     }
+    
 }
 
 
